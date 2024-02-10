@@ -1,11 +1,11 @@
 import { React } from "react";
-import logo from '../public/icon.svg';
 import { useState, useEffect } from 'react'
 import './App.css';
-import Navbar from './components/Navbar';
 import LandingPage from './components/LandingPage';
-import Footer from './components/Footer';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import SignUp from "./authentication/SignUp";
+import SignIn from "./authentication/SignIn";
+import MainPage from "./components/MainPage";
 
 function App() {
     const [count, setCount] = useState(0);
@@ -14,9 +14,9 @@ function App() {
 		<Router>
 			<Routes>
 				<Route path="/" element={ <LandingPage /> } />
-				<Route path="/signup" element={ <signup /> } />
-				<Route path="/signin" element={ <signin /> } />
-				<Route path="/mainPage" element={ <mainPage /> } />
+				<Route path="/signup" element={ <SignUp /> } />
+				<Route path="/signin" element={ <SignIn /> } />
+				<Route path="/mainPage" element={ <MainPage /> } />
 			</Routes>
 		</Router>
     )

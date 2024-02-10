@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import '../App.css';
 
 function SignUp() {
+	const navigate = useNavigate();
+	function referToLandingPage() {
+		navigate('/signin');
+	}
+
     return (
 		<div>
 			<label htmlFor="fullName">Name: </label>
@@ -10,6 +15,9 @@ function SignUp() {
 			<input type="text" placeholder="Enter username" />
 			<label htmlFor="password">Password: </label>
 			<input type="password" placeholder="Create a Password" />
+			<button onClick={referToLandingPage}>Sign Up</button>
 		</div>
 	)
 }
+
+export default SignUp;

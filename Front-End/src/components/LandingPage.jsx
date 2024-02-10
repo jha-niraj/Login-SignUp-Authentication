@@ -1,10 +1,26 @@
-import { React } from "react";
+import { useNavigate } from "react-router-dom";
+import '../App.css';
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 function LandingPage() {
+	const navigate = useNavigate();
+
+	function handleSignUp() {
+		navigate('/signup');
+	}
+	function handleSignIn() {
+		navigate('/signin');
+	}
+
   	return (
     	<div>
-      		<div></div>
-      		<div></div>
+      		<Navbar />
+			<div>
+				<button onClick={handleSignUp}>Sign Up</button>
+				<button onClick={handleSignIn}>Sign In</button>
+			</div>
+			<Footer />
     	</div>
   	);
 }

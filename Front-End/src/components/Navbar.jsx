@@ -1,24 +1,21 @@
 import { React } from "react";
-import { useNavigate } from "react";
+import logo from '../icon.svg';
 
-function Navbar() {
-	const navigate = useNavigate();
-	function handleSignUp() {
-		navigate('/signup');
-	}
-	
+function Navbar() {	
   	return (
-    	<div>
+    	<div style={{
+			display: "flex",
+			alignItems: "center",
+			justifyContent: "space-between"
+		}}>
       		<div>
 			  	<img src={logo} style={{width:"100px", height:"100px"}} />
       		</div>
       		<div>
 				<ul>
-					<button>Home</button>
-					<button>Contact</button>
-					<button>About Us</button>
-					<button onClick={handleSignUp}>SignUp</button>
-					<button onClick={handleSignin}>SignIn</button>
+					<li>Home</li>
+					<li>Contact</li>
+					<li>About Us</li>
 				</ul>
 			</div>
     </div>
