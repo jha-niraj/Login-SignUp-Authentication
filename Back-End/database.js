@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("url");
+mongoose.connect("mongodb+srv://jhaniraj45:loginsignup31@userlogin-signup.2otafat.mongodb.net/");
 
-const userSchema = mongoose.Schema({
+// I have made a mistake in not initializing the database Schema with the new Keyword.
+const userSchema = new mongoose.Schema({
 	fullname: String,
 	username: String,
 	password: String
@@ -10,4 +11,4 @@ const userSchema = mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-export default User;
+module.exports = User;

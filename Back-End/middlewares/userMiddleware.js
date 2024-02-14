@@ -1,27 +1,35 @@
 const { User } = require("../database");
+const jwt = require("jsonwebtoken");
+const { jwt_secret } = require("../config");
 
-async function userMiddleware(req, res, next) {
-	const username = req.headers.username;
-	const password = req.headers.password;
+function userMiddleware(req, res, next) {
+	const token = req.headers.authorization;
 
-	try {
-		const user = await User.find({
-			username,
-			password
+	if(!token) {
+		console.log("Error!!!");
+		res.json({
+			msg: "Invalid Token"
 		})
-		if(user) {
+	}
+	try {
+		const words = token.split(" ");
+		const webToken = words[1];
+		const decodedvalue = jwt.verify(webToken, jwt_secret);
+		if(decodedvalue.username) {
+			req.username = decodedvalue.username;
 			next();
 		} else {
+			console.log("Unauthorized Token!!!");
 			res.json({
-				msg: "User authentication failed!!!"
+				msg: "Token is not verified!!!"
 			})
 		}
 	} catch(error) {
 		console.log("Error occured!!!");
 		res.json({
-			msg: error
+			msg: "Invalid or Token expired!!!"
 		})
 	}
 }
 
-export default userMiddleware;
+module.exports = userMiddleware;

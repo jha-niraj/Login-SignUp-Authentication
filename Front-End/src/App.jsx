@@ -1,11 +1,11 @@
 import { React } from "react";
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy, Suspense } from 'react'
 import './App.css';
-import LandingPage from './components/LandingPage';
+const LandingPage = lazy(() => import('./components/LandingPage'));
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import SignUp from "./authentication/SignUp";
-import SignIn from "./authentication/SignIn";
-import MainPage from "./components/MainPage";
+const SignUp = lazy(() => import("./authentication/SignUp"));
+const SignIn = lazy(() => import("./authentication/SignIn"));
+const MainPage = lazy(() => import("./components/MainPage"));
 
 function App() {
     const [count, setCount] = useState(0);
@@ -13,10 +13,26 @@ function App() {
     return (
 		<Router>
 			<Routes>
-				<Route path="/" element={ <LandingPage /> } />
-				<Route path="/signup" element={ <SignUp /> } />
-				<Route path="/signin" element={ <SignIn /> } />
-				<Route path="/mainPage" element={ <MainPage /> } />
+				<Route path="/" element={
+					<Suspense fallback={<div>Loading...</div>}>
+						<LandingPage /> 
+					</Suspense>
+				} />
+				<Route path="/signup" element={
+					<Suspense fallback={<div>Loading...</div>}>
+						<SignUp /> 
+					</Suspense>
+				} />
+				<Route path="/signin" element={ 
+					<Suspense fallback={<div>Loading...</div>}>
+						<SignIn />
+					</Suspense>
+				} />
+				<Route path="/mainPage" element={
+					<Suspense fallback={<div>Loading...</div>}>
+						<MainPage />
+					</Suspense>
+				} />
 			</Routes>
 		</Router>
     )

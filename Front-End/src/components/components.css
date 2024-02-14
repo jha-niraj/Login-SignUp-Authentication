@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* Navbar Styles */
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.firstChild {
+    padding-left: 15px;
+}
+.secondChild > ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-right: 15px;
+}
+.list > li {
+    list-style-type: none;
+    padding: 10px;
+    margin: 10px;
+    font-size: 1.5rem;
+    transition: all 0.3s ease-in-out;
+}
+.list > li:hover {
+    background-color: beige;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn {
+    height: 40px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border: none;
+    background-color: white;
+    padding: 10px;
+    margin: 5px;
+    transition: all 0.4s ease-in-out;
+}
+.btn:hover {
+    border: 2px solid yellowgreen;
+    background-color: aqua;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Main Page Container */
+.main-page {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 75vh;
+    background-color: green;
+    border-radius: 20px;
+    margin: 20px;
+    transition: all 0.5s ease-in-out;
+}
+.firstPart {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.secondPart {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    padding: 30px;
+}
+.secondPart > h1 {
+    margin: 50px 0;
+}
+.main-page:hover {
+    background-color: aquamarine;
+}
+
+/* Footer Styles */
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 15px;
+}
+.footer > * {
+    padding: 10px;
+    height: 40px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border: none;
+    background-color: white;
+    padding: 10px;
+    margin: 5px;
+    transition: all 0.4s ease-in-out;
+}
+.footer > div > a {
+    text-decoration: none;
+    padding: 10px;
+    transition: all 0.4s ease-in-out;
+}
+.footer > div > a:hover {
+    border-radius: 10px;
+    background-color: aquamarine;
+}
